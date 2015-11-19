@@ -1,6 +1,6 @@
 {
   "name": "@evolopment/chai-process",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Chai Plugin to evaluate subprocesses",
   "keywords": ["chai", "plugin", "exec", "spawn", "process"],
   "author": "Jaime Blázquez <code@evolopment.com> (http://evolopment.com/)",
