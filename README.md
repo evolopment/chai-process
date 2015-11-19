@@ -57,7 +57,7 @@ it('method returns the childout standard error (stdio[2]) with specified encodin
 API
 ---
 
-###spawn(command, arguments, options)
+### spawn(command, arguments, options)
 
 Executes a [spawn](https://nodejs.org/dist/v4.2.2/docs/api/child_process.html#child_process_child_process_spawn_command_args_options)
 function to create a subprocess.
@@ -76,7 +76,8 @@ The `options` optional parameter (an object) allows the following properties:
   
 The standard I/O property (I/O) can't be specified directly, as it's used to capture the standard output and error. 
 
-The result value is a [Promise](https://promisesaplus.com/), so it requires that the Chai-As-Promised plugin is installed,
+The result value is a [Promise](https://promisesaplus.com/), so it requires that the 
+[Chai-As-Promised plugin](https://github.com/domenic/chai-as-promised/) is installed,
 and the use of `eventually` in the assertion chain.
   
 #### Example
@@ -84,6 +85,21 @@ and the use of `eventually` in the assertion chain.
 return expect(spawn('node', ['delay-2s.js'])).to.eventually.seconds.within(2, 2.5);
 ```
 
+### exec(command, options)
+
+Executes an [exec](https://nodejs.org/dist/v4.2.2/docs/api/child_process.html#child_process_child_process_exec_command_options_callback)
+function to create a subprocess.
+
+The `command` and `options` parameters are the same documented in exec 
+
+The result value is a [Promise](https://promisesaplus.com/), so it requires that the 
+[Chai-As-Promised plugin](https://github.com/domenic/chai-as-promised/) is installed,
+and the use of `eventually` in the assertion chain.
+  
+#### Example
+```
+return expect(exec('node delay-2s.js')).to.eventually.seconds.within(2, 2.5);
+```
 
 ### succeed
 
@@ -133,7 +149,7 @@ return expect(spawn('node', ['simple-ko-alt.js'])).to.eventually.exitWithCode(2)
 ```
 
 
-###seconds, milliseconds, microseconds, nanoseconds
+### seconds, milliseconds, microseconds, nanoseconds
 
 Returns the execution time (as seen from the node.js engine of the parent).
 The different properties return the value in each unit. The units are a commodity, not a specification of precision.
@@ -147,7 +163,7 @@ return expect(spawn('node', ['delay-2s.js'])).to.eventually.seconds.within(2, 2.
 ```
 
 
-###stdout(), stdout(encoding)
+### stdout(), stdout(encoding)
 
 Returns the standard output of the process, as a unique string.
 A default encoding is used unless the encoding parameter is used.
@@ -159,7 +175,7 @@ return expect(spawn('node', ['io-stdout-1.js'])).to.eventually.stdout().eql('abc
 return expect(spawn('node', ['io-stdout-utf8.js'])).to.eventually.stdout('utf8').eql('¿?ÑÇ');
 ```
 
-###stderr(), stderr(encoding)
+### stderr(), stderr(encoding)
 
 Returns the standard error of the process, as a unique string.
 A default encoding is used unless the encoding parameter is used.
