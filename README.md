@@ -19,7 +19,7 @@ As the result of execution is asynchronous, it's used along [Chai as promised](h
 ```
 var chai = require('chai');
 var chaiProcess = require('@evolopment/chai-process');
-var chaiAsPromised = require('chai-as-promised);
+var chaiAsPromised = require('chai-as-promised');
 
 chai.use(chaiProcess);
 chai.use(chaiAsPromised);
